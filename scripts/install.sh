@@ -12,6 +12,6 @@ aclocal && autoconf && libtoolize --force && automake --add-missing && ./configu
 make -j 4 && make install
 cd ..
 mkdir AA && cd AA
-git clone --recurse-submodules https://github.com/tomasz-grobelny/AACS.git && cd AACS && mkdir build && cd build && cmake .. && make -j 4 && cd ../..
+git clone --recurse-submodules https://github.com/bert1337/AACS.git && cd AACS && git checkout video-debug && mkdir build && cd build && cmake .. && make -j 4 && cd ../..
 cd
 apt -yq remove gdm3 && dpkg-reconfigure lightdm
