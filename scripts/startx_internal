@@ -24,6 +24,8 @@ SHMSINK="shmsink wait-for-connection=0 sync=true shm-size=$SHMSIZE socket-path=$
 MIXERFORMAT="video/x-raw, format=BGRA, pixel-aspect-ratio=1/1, interlace-mode=progressive, framerate=$framerate, width=$width, height=$height"
 CONVERT="videoconvert ! videorate ! videoscale ! videoconvert"
 
+glxgears &
+
 while (( "`xwininfo -root -tree|grep glxgears|sed "s/ /\n/g"|grep -v "^$"|wc -l`" == "0" )); do sleep 1; done
 while true; do
     sudo chmod 777 socket
