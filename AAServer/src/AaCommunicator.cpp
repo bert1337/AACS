@@ -272,9 +272,7 @@ void AaCommunicator::handlePingRequest(const void *buf, size_t nbytes) {
   std::vector<uint8_t> plainMsg;
   pushBackInt16(plainMsg, MessageType::PingResponse);
   copy(buffer, buffer + bufSize, std::back_inserter(plainMsg));
-  sendMessage(
-      0, EncryptionType::Plain | FrameType::Bulk | MessageTypeFlags::Specific,
-      plainMsg);
+  sendMessage(0, EncryptionType::Plain | FrameType::Bulk | MessageTypeFlags::Specific, plainMsg);
 }
 
 void AaCommunicator::handleSslHandshake(const void *buf, size_t nbytes) {
